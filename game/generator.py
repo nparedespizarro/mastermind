@@ -13,7 +13,7 @@ class Generator:
     """
     
     def __init__(self):
-        """Class contructor. Declares and initializes instance attributes.
+        """Class constructor. Declares and initializes instance attributes.
         
         Args:
             self (Generator): An instance of Generator.
