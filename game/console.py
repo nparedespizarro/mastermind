@@ -2,18 +2,17 @@
 class Console:
     """ A simple console code.
     class responsibility: display text on the standart output and return inputs
-    
+
         Stereotype:
         Service Provider, Interfacer
-        
+
         Attributes: 
-        - message: to display a message when "master_in" is called.
-        -output_value: a string to display on the console thru print function.
-    
+        -welcome: to display a message when game start.
+
     """
-    
+
     def __init__(self):
-        #Prints a welcome message. 
+        # Prints a welcome message.
         welcome = """ 
         
                       _                          
@@ -23,24 +22,40 @@ class Console:
           \_/\_/ \___|_|\___\___/|_| |_| |_|\___|
 
         """
-        
+
         print(welcome)
-        
-        
-    
+
     def master_out(self, output_value):
-        #displays a string
-        print(output_value)    
-        
+        """Master_out prints the user name.
+
+        Args:
+            self an instance of Director,
+            output_value, the user name."""
+        # displays user name
+        print(output_value)
+
     def master_in(self, message):
-        #returns an input given by the user
+        """Master_in returns the user name.
+
+        Args:
+            self an instance of Director,
+            message, the question for the user name"""
+        # returns an input given by the user
         x = input(message)
         return x
 
     def stepper(self):
-        #prints the string "--------------------"
+        """stepper prints a string to make the game look visualy appeling.
+
+        Args:
+            self an instance of Director"""
+        # prints the string "--------------------"
         print("--------------------")
-    
+
     def new_line(self):
-        #prints a new line
+        """new_line prints a new line.
+
+        Args:
+            self an instance of Director"""
+        # prints a new line
         print()
