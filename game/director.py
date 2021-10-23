@@ -29,26 +29,36 @@ class Director:
                 # ~ print(self.generator.get_player1_code())
                 self.turns.set_current_player(self.players.get_player1())
                 turn = self.console.master_in(self.turns.turn_msg(self.players.get_player1()))
-                state, comparation , winner = self.comparator.compare(self.generator.get_player1_code(), turn)
-                if state:
-                    self.generator.set_player1_state(comparation)
-                    self.generator.set_player1_hidden(turn)
-                    self.turns.turn_commute()
-                    self.console.new_line()
+                state, comparation , winner, word_state = self.comparator.compare(self.generator.get_player1_code(), turn, self.players.get_wordlist_player1())
+                if word_state:
+                    if state:
+                        self.generator.set_player1_state(comparation)
+                        self.generator.set_player1_hidden(turn)
+                        self.turns.turn_commute()
+                        self.console.new_line()
+                        self.players.update_wordlist_player1(turn)
+                    else:
+                        self.console.master_out(f"{turn} is not a valid input, try again!")
                 else:
-                    self.console.master_out(f"{turn} is not a valid input, try again!")
+                    self.console.master_out(f"You have entered {turn} before")
+
             else:
                 # ~ print(self.generator.get_player2_code())
                 self.turns.set_current_player(self.players.get_player2())
                 turn = self.console.master_in(self.turns.turn_msg(self.players.get_player2()))
-                state, comparation, winner = self.comparator.compare(self.generator.get_player2_code(), turn)
-                if state:
-                    self.generator.set_player2_state(comparation)
-                    self.generator.set_player2_hidden(turn)
-                    self.turns.turn_commute()
-                    self.console.new_line()
+                state, comparation, winner, word_state= self.comparator.compare(self.generator.get_player2_code(), turn, self.players.get_wordlist_player2())
+                if word_state:
+                    if state:
+                        self.generator.set_player2_state(comparation)
+                        self.generator.set_player2_hidden(turn)
+                        self.turns.turn_commute()
+                        self.console.new_line()
+                        self.players.update_wordlist_player2(turn)
+
+                    else:
+                        self.console.master_out(f"{turn} is not a valid input, try again!")
                 else:
-                    self.console.master_out(f"{turn} is not a valid input, try again!")
+                    self.console.master_out(f"You have entered {turn} before")
             if winner:
                 self.console.master_out(self.turns.win())
                 break

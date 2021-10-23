@@ -19,6 +19,8 @@ class Players:
         
         self.__player1 = "player1"
         self.__player2 = "player2"
+        self.__wordlist_player1 = []
+        self.__wordlist_player2 = []
         
     def get_player1(self):
         return self.__player1
@@ -31,3 +33,16 @@ class Players:
 
     def set_player2(self, player):
         self.__player2 = player
+        
+    def get_wordlist_player1(self):
+        return self.__wordlist_player1
+
+    def get_wordlist_player2(self):
+        return self.__wordlist_player2
+    
+    def update_wordlist_player1(self, word):
+        self.__wordlist_player1.append(word)
+
+    def update_wordlist_player2(self, word):
+        self.__wordlist_player2.append(word)
+
