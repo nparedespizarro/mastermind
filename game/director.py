@@ -82,7 +82,7 @@ class Director:
                 state, comparation, winner, word_state = self.comparator.compare(
                     self.generator.get_player2_code(), turn, self.players.get_wordlist_player2())
 
-                # And alos do the guess validation for player 2
+                # And also do the guess validation for player 2
                 if word_state:
                     if state:
                         self.generator.set_player2_state(comparation)
